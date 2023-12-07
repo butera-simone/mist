@@ -2,6 +2,44 @@
 
 Middleweight arg parsing library.
 
+## Example
+
+``` js 
+const Mist = require('mist')
+
+const m = new Mist({
+  flags: {
+    alpha: {
+      value: 'bool',
+      default: 'a'
+    },
+    beta: {
+      value: 'string',
+      default: 'b',
+      parser: (newValue) => {
+        if (newValue.length > 10) {
+            throw new Error('too long')
+        }
+      }
+    }
+  },
+  positional: [
+    {
+      default: 1000
+    }
+  ]
+})
+
+m.sub('call', {
+  flags: {
+    gamma: {
+      value: 'list'
+    }
+  },
+  flagInheritance: false
+})
+```
+
 ## API
 
 The api is based around two options object formats, one for declaring commands and another one for declaring arguments. 
@@ -53,9 +91,9 @@ Argument objects are used to declare flags and positional parameters. Here are t
 ```
 
 The value field can have the following contents:
-- bool (a boolean flag)
-- string (the flag is expected to receive an argument)
-- list (with the format `--list-flag=first,second,third`)
+- 'bool' (a boolean flag)
+- 'string' (the flag is expected to receive an argument)
+- 'list' (with the format `--list-flag=first,second,third`)
 - ['option', 'anotherOption'] (passing an array of strings will generate an enum flag that can only take one of the declared values as argument)
 
 Positional parameters support a limited version of the object: 
