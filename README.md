@@ -72,7 +72,7 @@ Mist supports recursive subcommands. Each subcommand inherits from its super:
 - the simpleAlias setting, unless a value is provided to overwrite it
 - not the positional parameters, they are specific for each command
 
-The default validate hook will print to console.error (and call the teardown logic to exit the program) if:
+The default validate hook will print to console.error (and try to exit the program) if:
 - the number of positional arguments given is larger than the number accepted by the command
 - an unknown flag was passed to the command
 - an enum flag was given an argument outside of its allowed values
