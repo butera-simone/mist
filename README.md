@@ -91,10 +91,10 @@ Argument objects are used to declare flags and positional parameters. Here are t
 ```
 
 The value field can have the following contents:
-- 'bool' (a boolean flag)
-- 'string' (the flag is expected to receive an argument)
-- 'list' (with the format `--list-flag=first,second,third`)
-- ['option', 'anotherOption'] (passing an array of strings will generate an enum flag that can only take one of the declared values as argument)
+- `'bool'` (a boolean flag)
+- `'string'` (the flag is expected to receive an argument)
+- `'list'` (with the format `--list-flag=first,second,third`)
+- `['option', 'anotherOption']` (passing an array of strings will generate an enum flag that can only take one of the declared values as argument)
 
 Positional parameters support a limited version of the object: 
 
