@@ -4,10 +4,11 @@
   "description": "Like minimist, less mini",
   "main": "index.js",
   "devDependencies": {
-    "standard": "*"
+    "brittle": "^3.3.2",
+    "standard": "^17.0.0"
   },
   "scripts": {
-    "test": "standard && node my-tests.js"
+    "test": "standard && brittle test/*.js"
   },
   "author": "",
   "license": "ISC",
